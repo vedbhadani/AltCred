@@ -1,0 +1,30 @@
+{
+  "name": "altcred",
+  "version": "1.0.0",
+  "description": "AltCred - Alternative Credit Scoring Platform",
+  "private": true,
+  "scripts": {
+    "dev": "node frontend/server.js",
+    "dev:frontend": "node frontend/server.js",
+    "dev:alt": "PORT=3000 node frontend/server.js",
+    "dev:backend": "cd backend && npm run dev",
+    "start:backend": "cd backend && node server.js",
+    "install:backend": "cd backend && npm install",
+    "install:all": "npm run install:backend"
+  },
+  "keywords": [
+    "credit-scoring",
+    "alternative-credit",
+    "fintech",
+    "ml",
+    "ai"
+  ],
+  "author": "AltCred Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
