@@ -1,4 +1,4 @@
-const { verifyToken } = require('../utils/token.util');
+const {verifyToken} = require('../utils/token.util');
 
 const requireAuth = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -13,5 +13,4 @@ const requireAuth = (req, res, next) => {
     res.status(401).json({ message: 'Invalid or expired token' });
   }
 };
-
 module.exports = { requireAuth };
