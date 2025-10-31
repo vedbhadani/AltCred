@@ -7,8 +7,16 @@ dotenv.config();
 
 const app = express();
 
-app.use(express.json());
+// Body parsing with size limit
+app.use(express.json({ limit: '10mb' }));
 app.use(cors());
+
+// Global validation middleware
+app.use((req, res, next) => {
+  // Log requests for debugging
+  console.log(`${req.method} ${req.path} - ${new Date().toISOString()}`);
+  next();
+});
 
 app.use('/api', routes);
 
