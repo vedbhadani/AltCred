@@ -78,7 +78,7 @@ See `frontend/README.md` for more details.
 - **Yash Pratap Singh Solanki** - Backend & System Architecture
 - **Ved Bhadani** - Backend & Database Management
 - **Archisman Nath Choudhury** - Machine Learning & Model Design
-- **Akansha** - Frontend Developer
+- **AkanKsha** - Frontend Developer
 
 ## 📜 License
 
