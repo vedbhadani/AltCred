@@ -1,9 +1,9 @@
-const { prisma } = require('../config/database');
-const { hashPassword, comparePassword } = require('../utils/hash.util');
-const { generateToken } = require('../utils/token.util');
+const {prisma} = require('../config/database');
+const {hashPassword, comparePassword} = require('../utils/hash.util');
+const {generateToken} = require('../utils/token.util');
 
 const registerUser = async (name, email, password) => {
-  const existing = await prisma.user.findUnique({ where: { email } });
+  const existing = await prisma.user.findUnique({where: {email}});
   if (existing) throw new Error('User already exists');
 
   const hashed = await hashPassword(password);
