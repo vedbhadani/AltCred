@@ -1,85 +1,284 @@
-# AltCred
+# AltCred - Alternative Credit Scoring Platform
 
-# 🚀 AltCred - Alternative Credit Scoring Platform
+AltCred is a modern alternative credit scoring platform that uses alternative data and AI to generate credit scores for millions of "credit invisible" people, helping them access financial products they deserve.
 
-> **AltCred** is a next-generation credit scoring system that uses alternative data and AI to generate credit scores for millions of "credit invisible" people.
+## 🚀 Tech Stack
 
-## 📢 Project Status
+This is a **PERN Stack** project:
 
-- ✅ Repository created  
-- ✅ Frontend website completed with smooth animations and custom cursor
-- 🔹 Backend API in progress
-- 🔹 Database setup in progress
-- 🔜 ML Model integration coming soon
+- **Frontend**: Next.js 14 (React 18) with JavaScript
+- **Backend**: Node.js with Express.js
+- **Database**: PostgreSQL with Prisma ORM
+- **Authentication**: JWT-based authentication
 
-## 🚀 Quick Start
+## ✨ Features
 
-### Frontend (Website)
+### Frontend Features
+- ✅ **Modern React UI**: Built with Next.js for optimal performance
+- ✅ **Custom Triangle Cursor**: Smooth, animated custom cursor
+- ✅ **Smooth Animations**: Scroll-triggered fade-in animations
+- ✅ **Responsive Design**: Mobile-friendly with hamburger menu
+- ✅ **Modal Forms**: Interactive get-started modal
+- ✅ **Button Interactions**: Ripple effects on buttons
+- ✅ **Dark Theme**: Beautiful sky-blue themed UI
 
-Run the development server to view the website:
-
-```bash
-npm run dev
-```
-
-This will start a local server at `http://localhost:8000`. Open it in your browser to see the AltCred website with:
-- ✨ Smooth custom triangle cursor (sky-blue)
-- 🎨 Animated dotted background
-- 📱 Fully responsive design
-- 🎯 All content sections about AltCred
-
-### Other Commands
-
-```bash
-# Frontend only
-npm run dev:frontend
-
-# Backend only (when ready)
-npm run dev:backend
-
-# Install backend dependencies
-npm run install:backend
-```
+### Backend Features
+- ✅ **RESTful API**: Express.js backend with proper routing
+- ✅ **JWT Authentication**: Secure token-based authentication
+- ✅ **Prisma ORM**: Type-safe database operations
+- ✅ **User Management**: User registration, login, profile management
+- ✅ **Credit Scoring**: Credit score calculation system (in development)
+- ✅ **Transaction Tracking**: Track user transactions
+- ✅ **Credit Reports**: Generate detailed credit reports
 
 ## 📁 Project Structure
 
 ```
-AltCred/
-├── frontend/          # Website (HTML, CSS, JS)
-│   ├── index.html    # Main page
-│   ├── css/          # Styles with animations
-│   ├── js/           # Interactive features
-│   └── assets/       # Images and logos
-├── backend/          # Node.js/Express API
-│   ├── src/          # Source code
-│   └── prisma/       # Database schema
-└── docs/             # Documentation
+AltCred-1/
+├── frontend/                 # Next.js React Application
+│   ├── components/          # React components
+│   │   ├── CustomCursor.js
+│   │   ├── Navbar.js
+│   │   ├── Hero.js
+│   │   ├── ProblemSection.js
+│   │   ├── SolutionSection.js
+│   │   ├── ScoringSection.js
+│   │   ├── ScoreSegmentsSection.js
+│   │   ├── FeaturesSection.js
+│   │   ├── TechStackSection.js
+│   │   ├── CTASection.js
+│   │   ├── Footer.js
+│   │   └── GetStartedModal.js
+│   ├── hooks/               # Custom React hooks
+│   │   ├── useCustomCursor.js
+│   │   ├── useScrollAnimations.js
+│   │   └── useNavbarScroll.js
+│   ├── pages/              # Next.js pages
+│   │   ├── _app.js
+│   │   ├── _document.js
+│   │   └── index.js
+│   ├── styles/             # Global styles
+│   │   └── globals.css
+│   └── public/             # Static assets
+│       └── logo.png
+│
+├── backend/                 # Express.js Backend API
+│   ├── prisma/             # Prisma schema and migrations
+│   │   ├── schema.prisma
+│   │   └── migrations/
+│   ├── src/
+│   │   ├── config/         # Configuration files
+│   │   ├── constants/      # Constants (scoring, errors, etc.)
+│   │   ├── controllers/    # Route controllers
+│   │   ├── middleware/     # Express middleware
+│   │   ├── models/         # Database models
+│   │   ├── routes/         # API routes
+│   │   ├── services/       # Business logic
+│   │   └── utils/          # Utility functions
+│   └── server.js           # Express server entry point
+│
+└── docs/                    # Documentation
+    ├── api-endpoints.md
+    ├── architecture-diagram.md
+    ├── data-models.md
+    └── vision.md
 ```
 
-## 🎨 Frontend Features
+## 🛠️ Prerequisites
 
-- **Custom Cursor**: Smooth triangle cursor with sky-blue color matching logo
-- **Animated Background**: Moving dotted pattern across sections
-- **Smooth Animations**: Fade-in on scroll, parallax effects
-- **Responsive Design**: Works on mobile, tablet, and desktop
-- **Modern UI**: Dark theme with gradient accents
+- **Node.js** >= 14.0.0
+- **npm** or **yarn**
+- **PostgreSQL** database
+- **Git**
 
-See `frontend/README.md` for more details.
+## 📦 Installation
 
-## 🧠 Tech Stack
+### 1. Clone the repository
 
-- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
-- **Backend**: Node.js, Express.js
-- **Database**: PostgreSQL (via Prisma)
-- **ML**: TensorFlow.js (planned)
+```bash
+git clone <repository-url>
+cd AltCred-1
+```
 
-## 👥 Team
+### 2. Install all dependencies
 
-- **Yash Pratap Singh Solanki** - Backend & System Architecture
-- **Ved Bhadani** - Backend & Database Management
-- **Archisman Nath Choudhury** - Machine Learning & Model Design
-- **AkanKsha** - Frontend Developer
+```bash
+# Install backend dependencies
+npm run install:backend
 
-## 📜 License
+# Install frontend dependencies
+npm run install:frontend
 
-This project is licensed under the **MIT License**.
+# Or install all at once
+npm run install:all
+```
+
+### 3. Database Setup
+
+1. Create a PostgreSQL database
+2. Copy `.env.example` to `.env` in the backend directory (create if doesn't exist)
+3. Update the `DATABASE_URL` in `backend/.env`:
+
+```env
+DATABASE_URL="postgresql://username:password@localhost:5432/altcred?schema=public"
+```
+
+4. Run Prisma migrations:
+
+```bash
+cd backend
+npm run prisma:migrate
+npm run prisma:generate
+```
+
+## 🚀 Development
+
+### Start Backend Server
+
+```bash
+# From root directory
+npm run dev:backend
+
+# Or from backend directory
+cd backend
+npm run dev
+```
+
+Backend runs on `http://localhost:3001` (or configured PORT)
+
+### Start Frontend Server
+
+```bash
+# From root directory
+npm run dev:frontend
+
+# Or from frontend directory
+cd frontend
+npm run dev
+```
+
+Frontend runs on `http://localhost:3000`
+
+### Start Both Servers
+
+Run both servers in separate terminals, or use a process manager like `concurrently`.
+
+## 🏗️ Build for Production
+
+### Frontend Build
+
+```bash
+cd frontend
+npm run build
+npm start
+```
+
+### Backend Build
+
+```bash
+cd backend
+npm start
+```
+
+## 📡 API Endpoints
+
+See [docs/api-endpoints.md](docs/api-endpoints.md) for detailed API documentation.
+
+### Authentication
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User login
+- `GET /api/auth/me` - Get current user (protected)
+
+### Credit (Protected Routes)
+- `POST /api/credit/calculate` - Calculate credit score
+- `GET /api/credit/history` - Get credit history
+
+## 🎨 Features Included
+
+### Frontend
+- ✅ Custom triangle cursor animation
+- ✅ Smooth scroll animations
+- ✅ Navbar scroll effects
+- ✅ Modal with form handling
+- ✅ Responsive mobile menu
+- ✅ Button ripple effects
+- ✅ All original animations and interactions
+
+### Backend
+- ✅ User authentication (JWT)
+- ✅ User registration and login
+- ✅ Credit score models
+- ✅ Transaction tracking
+- ✅ Credit report generation
+- ✅ Database models (User, CreditScore, Transaction, CreditReport)
+
+## 🗄️ Database Schema
+
+The database includes the following models:
+
+- **User**: User accounts and authentication
+- **CreditScore**: Credit scores with factors
+- **Transaction**: Financial transactions
+- **CreditReport**: Detailed credit reports
+
+See [docs/data-models.md](docs/data-models.md) for detailed schema information.
+
+## 📝 Environment Variables
+
+### Backend (.env)
+
+```env
+DATABASE_URL="postgresql://user:password@localhost:5432/altcred"
+JWT_SECRET="your-secret-key"
+JWT_EXPIRES_IN="7d"
+PORT=3001
+NODE_ENV=development
+```
+
+### Frontend
+
+Next.js automatically handles environment variables. Create `.env.local` if needed.
+
+## 🧪 Testing
+
+```bash
+# Backend tests (when implemented)
+cd backend
+npm test
+
+# Frontend tests (when implemented)
+cd frontend
+npm test
+```
+
+## 📚 Documentation
+
+- [API Endpoints](docs/api-endpoints.md)
+- [Architecture Diagram](docs/architecture-diagram.md)
+- [Data Models](docs/data-models.md)
+- [Vision & Goals](docs/vision.md)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Authors
+
+AltCred Team
+
+## 🙏 Acknowledgments
+
+- Built with modern web technologies
+- Alternative credit scoring for financial inclusion
+
+---
+
+**Note**: This project is under active development. Some features may be incomplete or in progress.

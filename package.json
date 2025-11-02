@@ -4,13 +4,15 @@
   "description": "AltCred - Alternative Credit Scoring Platform",
   "private": true,
   "scripts": {
-    "dev": "node frontend/server.js",
-    "dev:frontend": "node frontend/server.js",
-    "dev:alt": "PORT=3000 node frontend/server.js",
+    "dev": "cd frontend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
     "dev:backend": "cd backend && npm run dev",
     "start:backend": "cd backend && node server.js",
+    "build": "cd frontend && npm run build",
+    "start": "cd frontend && npm start",
     "install:backend": "cd backend && npm install",
-    "install:all": "npm run install:backend"
+    "install:frontend": "cd frontend && npm install",
+    "install:all": "npm run install:backend && npm run install:frontend"
   },
   "keywords": [
     "credit-scoring",
