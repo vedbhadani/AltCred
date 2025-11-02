@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react'
+import { register } from '../services/auth.api'
+import { useAsync } from '../hooks/useAsync'
+import { useToastContext } from '../context/ToastContext'
 
 const INDIAN_STATES = [
   'Andhra Pradesh',
@@ -42,30 +45,62 @@ export default function GetStartedModal({ isOpen, onClose }) {
     age: '',
     state: '',
   })
+  
+  const toast = useToastContext()
+  const { loading, execute } = useAsync(async (data) => {
+    // Note: Current backend requires 'password' field, but modal doesn't have it
+    // This is a placeholder - adjust based on your actual API
+    return await register({
+      name: data.name,
+      email: data.email,
+      // For now, we'll just show a success message
+      // In production, you'd need to add password field or use different endpoint
+    })
+  })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
+    // Client-side validation
     if (!formData.name || !formData.email || !formData.age || !formData.state) {
-      alert('Please fill in all required fields')
+      toast.error('Please fill in all required fields')
       return
     }
 
-    console.log('Form submitted with data:', formData)
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(formData.email)) {
+      toast.error('Please enter a valid email address')
+      return
+    }
 
-    alert(`Thank you ${formData.name}! We've received your information. We'll be in touch soon.`)
+    // Age validation
+    const age = parseInt(formData.age)
+    if (age < 18 || age > 100) {
+      toast.error('Age must be between 18 and 100')
+      return
+    }
 
-    // Reset form
-    setFormData({ name: '', email: '', age: '', state: '' })
-    onClose()
-
-    // Here you would typically send the data to your backend API
-    // Example:
-    // fetch('/api/register', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(formData)
-    // })
+    // For now, show success message (since backend register needs password)
+    // TODO: Update this when you add password field or use different endpoint
+    try {
+      // Uncomment when backend is ready:
+      // const result = await execute(formData)
+      // if (result.success) {
+      //   toast.success(`Thank you ${formData.name}! Registration successful.`)
+      //   setFormData({ name: '', email: '', age: '', state: '' })
+      //   onClose()
+      // }
+      
+      // Temporary success message
+      toast.success(`Thank you ${formData.name}! We've received your information. We'll be in touch soon.`)
+      setFormData({ name: '', email: '', age: '', state: '' })
+      onClose()
+    } catch (error) {
+      // Error handling is done by useAsync hook
+      // This catch is for any unexpected errors
+      console.error('Unexpected error:', error)
+    }
   }
 
   const handleChange = (e) => {
@@ -167,8 +202,8 @@ export default function GetStartedModal({ isOpen, onClose }) {
             <button type="button" className="btn btn-secondary" onClick={onClose}>
               Cancel
             </button>
-            <button type="submit" className="btn btn-primary">
-              Continue
+            <button type="submit" className="btn btn-primary" disabled={loading}>
+              {loading ? 'Processing...' : 'Continue'}
             </button>
           </div>
         </form>
