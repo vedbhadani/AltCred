@@ -1,4 +1,5 @@
 # AltCred - Alternative Credit Scoring Platform
+# UNDER CONSTRUCTION
 
 AltCred is a modern alternative credit scoring platform that uses alternative data and AI to generate credit scores for millions of "credit invisible" people, helping them access financial products they deserve.
 
