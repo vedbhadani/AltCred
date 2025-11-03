@@ -1,7 +1,6 @@
 /**
  * Credit Scoring Parameters and Configuration
  * This file contains all the constants and weights used in the credit scoring algorithm
- * This is not yet complete nor the final version 
  */
 
 module.exports = {
