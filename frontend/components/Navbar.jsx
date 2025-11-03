@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { useNavbarScroll } from '../hooks/useNavbarScroll'
 
 export default function Navbar({ onGetStartedClick }) {
@@ -67,10 +68,13 @@ export default function Navbar({ onGetStartedClick }) {
       <div className="container">
         <div className="nav-content">
           <div className="logo-container">
-            <img
+            <Image
               src="/logo.png"
               alt="AltCred Logo"
+              width={120}
+              height={40}
               className="logo"
+              priority
             />
           </div>
           <ul className={`nav-links ${mobileMenuOpen ? 'mobile-open' : ''}`}>
