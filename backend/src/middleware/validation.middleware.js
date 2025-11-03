@@ -1,7 +1,8 @@
 // General validation helpers
 const validateJSON = (req,res,next) =>{
-    if(req.headers['content-type'] !== 'application/json'){
-        return res.status(400).json({error:'Content-Type must be application/json'})
+    const ct = (req.headers['content-type'] || '').toLowerCase();
+    if(!ct.startsWith('application/json')){
+        return res.status(400).json({error:'Content-Type must be application/json'});
     }
     next();
 };
