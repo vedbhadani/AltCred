@@ -1,7 +1,8 @@
-import Logo from "./Logo"
 
-export default Navbar=()=>{
+import Logo from "./Logo"
+const Navbar = ()=> {
     return <>
         <Logo />
     </>
 }
+export default Navbar;
