@@ -12,6 +12,5 @@ export default function Page() {
       borderRight:'250px solid transparent',
       borderBottom:'250px solid #40a8c8',
     }}></div>
-    <h1>Hello, Next.js!</h1>
   </>
 }
