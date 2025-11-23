@@ -2,30 +2,24 @@
   --background: #ffffff;
   --foreground: #171717;
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    --foreground: #ededed;}}
 
 html {
   height:100%;
   background: 
     repeating-linear-gradient(
-      45deg,
-      #000000 0%,#000000 10%,#0a1a2e 10%,#0a1a2e 20%,
-      #1a3a5a 20%,#1a3a5a 30%,#2d5a7a 30%,#2d5a7a 40%,
-      #40a8c8 40%,#40a8c8 50%,#2d5a7a 50%,#2d5a7a 60%,
-      #1a3a5a 60%,#1a3a5a 70%,
-      #0a1a2e 70%,#0a1a2e 80%,
-      #000000 80%, #000000 90%,
-      #0a1a2e 90%,#0a1a2e 100%
-    ),linear-gradient(135deg, #000000 0%,#1a3a5a 50%,#40a8c8 100%);
+      -45deg,
+      #000000 0%,#000000 8%,#0a1a2e 8%,#0a1a2e 16%,
+      #1a3a5a 16%,#1a3a5a 24%,#2d5a7a 24%,#2d5a7a 32%,
+      #40a8c8 32%,#40a8c8 40%,#2d5a7a 40%,#2d5a7a 48%,
+      #1a3a5a 48%,#1a3a5a 56%,#0a1a2e 56%,#0a1a2e 64%,#000000 64%,#000000 72%,#0a1a2e 72%,#0a1a2e 80%,#1a3a5a 80%,#1a3a5a 88%,#2d5a7a 88%,#2d5a7a 96%,#40a8c8 96%,#40a8c8 100%
+    ),linear-gradient(-45deg, #40a8c8 0%,#1a3a5a 50%,#000000 100%);
   background-attachment:fixed;
   background-size:200% 200%;
-  animation:zigzag 10s ease infinite;
+  animation:zigzag 20s ease infinite;
 }
 @keyframes zigzag {
   50% {
@@ -44,17 +38,17 @@ body {
   color: var(--foreground);
   background: 
     repeating-linear-gradient(
-      45deg,
-      #000000 0%,#000000 10%,#0a1a2e 10%,#0a1a2e 20%,
-      #1a3a5a 20%,#1a3a5a 30%,#2d5a7a 30%,
-      #2d5a7a 40%,#40a8c8 40%,#40a8c8 50%,
-      #2d5a7a 50%,#2d5a7a 60%,#1a3a5a 60%,#1a3a5a 70%,
-      #0a1a2e 70%,#0a1a2e 80%,#000000 80%,#000000 90%,#0a1a2e 90%,#0a1a2e 100%
+      -45deg,
+      #000000 0%,
+      #000000 8%,#0a1a2e 8%,#0a1a2e 16%,
+      #1a3a5a 16%,#1a3a5a 24%,#2d5a7a 24%,
+      #2d5a7a 32%,#40a8c8 32%,#40a8c8 40%,
+      #2d5a7a 40%,#2d5a7a 48%,#1a3a5a 48%,#1a3a5a 56%,#0a1a2e 56%,#0a1a2e 64%,#000000 64%,#000000 72%,#0a1a2e 72%,#0a1a2e 80%,#1a3a5a 80%,#1a3a5a 88%,#2d5a7a 88%,#2d5a7a 96%,#40a8c8 96%,#40a8c8 100%
     ),
-    linear-gradient(135deg, #000000 0%, #1a3a5a 50%, #40a8c8 100%);
+    linear-gradient(-45deg, #40a8c8 0%, #1a3a5a 50%, #000000 100%);
   background-attachment:fixed;
   background-size:200% 200%;
-  animation:zigzag 10s ease infinite;
+  animation:zigzag 20s ease infinite;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
