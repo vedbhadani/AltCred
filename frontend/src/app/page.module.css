@@ -122,6 +122,43 @@ a.secondary {
   }
 }
 
+/* Component styles for modular design */
+.mainContainer {
+  padding: 60px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #ededed;
+}
+
+.section {
+  margin-bottom: 60px;
+}
+
+.sectionTitle {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #40a8c8;
+}
+
+.italicText {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.lenderTagline {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #87ceeb;
+}
+
 @media (prefers-color-scheme: dark) {
   .logo {
     filter: invert();
