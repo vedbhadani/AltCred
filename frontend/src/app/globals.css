@@ -1,6 +1,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --bg-primary: #0a0a0f;      /* Main background */
+  --bg-secondary: #18181b;    /* Card backgrounds */
+  --bg-tertiary: #27272a;     /* Deeper backgrounds */
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -8,63 +11,46 @@
     --foreground: #ededed;}}
 
 html {
-  height:100%;
-  background: 
-    repeating-linear-gradient(
-      -45deg,
-      #000000 0%,#000000 6%,#0a1a2e 10%,#0a1a2e 14%,#1a3a5a 18%,#1a3a5a 22%,#2d5a7a 26%,#2d5a7a 30%,
-      #40a8c8 34%,#40a8c8 38%,#2d5a7a 42%,#2d5a7a 46%,#1a3a5a 50%,#1a3a5a 54%,#0a1a2e 58%,#0a1a2e 62%,
-      #000000 66%,#000000 70%,#0a1a2e 74%,#0a1a2e 78%,#1a3a5a 82%,#1a3a5a 86%,#2d5a7a 90%,#2d5a7a 94%,#40a8c8 98%,#40a8c8 100%
-    ),linear-gradient(-45deg, #40a8c8 0%,#1a3a5a 50%,#000000 100%);
-  background-attachment:fixed;
-  background-size:200% 200%;
-  animation:zigzag 20s ease infinite;
-}
-@keyframes zigzag {
-  50% {
-    background-position:100% 100%;
-  }
+  height: 100%;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  min-height:100vh;
+  min-height: 100vh;
 }
 
 body {
   color: var(--foreground);
-  background: 
-    repeating-linear-gradient(
-      -45deg,
-      #000000 0%,
-      #000000 6%,#0a1a2e 10%,#0a1a2e 14%,#1a3a5a 18%,#1a3a5a 22%,#2d5a7a 26%,
-      #2d5a7a 30%,#40a8c8 34%,#40a8c8 38%,#2d5a7a 42%,#2d5a7a 46%,#1a3a5a 50%,#1a3a5a 54%,
-      #0a1a2e 58%,#0a1a2e 62%,#000000 66%,#000000 70%,#0a1a2e 74%,#0a1a2e 78%,#1a3a5a 82%,#1a3a5a 86%,
-      #2d5a7a 90%,#2d5a7a 94%,#40a8c8 98%,#40a8c8 100%
-    ),
-    linear-gradient(-45deg, #40a8c8 0%, #1a3a5a 50%, #000000 100%);
-  background-attachment:fixed;
-  background-size:200% 200%;
-  animation:zigzag 20s ease infinite;
+  background-color: #0a0a0f;  /* Very dark blue/black */
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+
+/* Animated Dotted Background */
+.bg-dots-animated {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+  animation: dots-move 14s linear infinite;
+  position: relative;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@keyframes dots-move {
+  from {background-position: 0 0;}
+  to {background-position: 180px 180px;}}
+
+/* Navbar Glassmorphism */
+.navbar {background: rgba(10, 10, 15, 0.8);
+   backdrop-filter: blur(10px);}
+* {box-sizing: border-box;padding: 0;margin: 0;}
+
+a{
+  color:inherit;
+  text-decoration: none;}
 
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  html {color-scheme: dark;
   }
 }
