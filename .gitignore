@@ -51,6 +51,13 @@ jspm_packages/
 
 # Yarn Integrity file
 .yarn-integrity
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
 # dotenv environment variables file
 .env.test
@@ -61,6 +68,12 @@ jspm_packages/
 
 # Next.js build output
 .next
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Vercel
+.vercel
 
 # Nuxt.js build / generate output
 .nuxt
