@@ -7,17 +7,6 @@ import { useEffect, useState } from 'react';
 import { getToken } from '@/utils/auth';
 
 export default function Home() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-    useEffect(() => {
-        const token = getToken();
-        setIsAuthenticated(!!token);
-    }, []);
-
-    const stats = [
-        { value: '10+', label: 'Years Experience' },
-        { value: '5★', label: 'Rating' },
-    ];
 
     const features = [
         'Works for first-time borrowers',
@@ -94,23 +83,7 @@ export default function Home() {
                                         </motion.button>
                                     </Link>
                                 </motion.div>
-                                <motion.div
-                                    className="flex gap-12"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: 0.8 }}
-                                >
-                                    {stats.map((stat, index) => (
-                                        <motion.div
-                                            key={index}
-                                            whileHover={{ scale: 1.1 }}
-                                            className="text-center"
-                                        >
-                                            <div className="text-4xl font-bold text-cyan-400 mb-2">{stat.value}</div>
-                                            <div className="text-gray-400 text-sm">{stat.label}</div>
-                                        </motion.div>
-                                    ))}
-                                </motion.div>
+
                             </motion.div>
 
                             <motion.div
@@ -296,7 +269,7 @@ export default function Home() {
                         </Link>
                     </motion.div>
                 </section>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 }
