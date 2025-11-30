@@ -2,7 +2,6 @@
 
 **AltCred** is a financial inclusion platform that uses alternative data points to generate credit scores for individuals with little to no credit history. By analyzing factors like employment stability, income patterns, and financial discipline, AltCred provides a fair and dynamic assessment of creditworthiness.
 
-![AltCred Dashboard](frontend/public/Screenshot_2025-11-30_at_10.59.20_AM-removebg-preview.png)
 
 ## 🚀 Features
 
