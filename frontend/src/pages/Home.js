@@ -3,8 +3,16 @@ import Link from 'next/link';
 import { CheckCircle, TrendingUp, Users, Shield, Zap, Activity } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useEffect, useState } from 'react';
+import { getToken } from '@/utils/auth';
 
 const Home = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = getToken();
+    setIsAuthenticated(!!token);
+  }, []);
 
   const features = [
     'Works for first-time borrowers',
@@ -71,7 +79,7 @@ const Home = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
                 >
-                  <Link href="/financial-assessment">
+                  <Link href={isAuthenticated ? "/financial-assessment" : "/login"}>
                     <motion.button
                       whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 217, 255, 0.6)' }}
                       whileTap={{ scale: 0.95 }}
@@ -266,7 +274,7 @@ const Home = () => {
               Credit for everyone. Intelligence for lenders.
             </h2>
             <p className="text-2xl text-cyan-400 mb-8">That's AltCred.</p>
-            <Link href="/financial-assessment">
+            <Link href={isAuthenticated ? "/financial-assessment" : "/login"}>
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 217, 255, 0.6)' }}
                 whileTap={{ scale: 0.95 }}
@@ -278,7 +286,7 @@ const Home = () => {
           </motion.div>
         </section>
       </div>
-      
+
     </div>
   );
 };
