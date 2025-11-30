@@ -10,12 +10,7 @@ const Features = () => {
       description: 'Move beyond outdated CIBIL-only models.',
       details: 'AltCred evaluates UPI patterns, digital payments, income habits, and more — creating a 360° behavioural profile of every customer.',
     },
-    {
-      icon: <Activity />,
-      title: 'Real-Time Risk Engine',
-      description: 'Continuous AI analysis for instant decisions.',
-      details: 'Our AI continuously analyzes spending patterns, income volatility, bill payment behaviour, and loan intent signals. Risk scores update live.',
-    },
+  
     {
       icon: <UserCheck />,
       title: 'First-Time Borrower Scoring',
@@ -34,12 +29,7 @@ const Features = () => {
       description: 'Eliminates human, location, and background bias.',
       details: 'AltCred scoring is based only on real behaviour, not personal identity. Fair evaluation for everyone.',
     },
-    {
-      icon: <BarChart3 />,
-      title: 'Lender Dashboard & Insights',
-      description: 'Powerful analytics for confident lending.',
-      details: 'Portfolio quality analysis, risk heatmaps, user cohort performance, default probability scores, and policy simulation tools. Actionable insights.',
-    },
+
     {
       icon: <Shield />,
       title: 'Secure & Compliant by Design',

@@ -35,6 +35,7 @@ const Navbar = () => {
         { name: 'Home', href: '/' },
         { name: 'About', href: '/About' },
         { name: 'Features', href: '/Features' },
+        { name: 'Contact', href: '/Contact' },
     ];
 
     return (
@@ -96,7 +97,7 @@ const Navbar = () => {
                     </div>
 
 
-                    
+
                 </div>
             </div>
         </nav>

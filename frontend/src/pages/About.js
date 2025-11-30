@@ -18,7 +18,6 @@ const About = () => {
     'Real-time spending patterns',
   ];
   const behavioralSignals = [
-    'UPI frequency',
     'Cashflow patterns',
     'Bill payment history',
     'Monthly spending discipline',
