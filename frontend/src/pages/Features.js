@@ -1,219 +1,149 @@
-import React from 'react';
+import { motion } from 'framer-motion';
+import { Award, Activity, UserCheck, Zap, Eye, BarChart3, Shield, Code } from 'lucide-react';
 import Navbar from '@/components/Navbar';
-import styles from '@/app/page.module.css';
 
-export default function Features() {
+const Features = () => {
+  const features = [
+    {
+      icon: <Award />,
+      title: 'Behaviour-Based Credit Score',
+      description: 'Move beyond outdated CIBIL-only models.',
+      details: 'AltCred evaluates UPI patterns, digital payments, income habits, and more — creating a 360° behavioural profile of every customer.',
+    },
+    {
+      icon: <Activity />,
+      title: 'Real-Time Risk Engine',
+      description: 'Continuous AI analysis for instant decisions.',
+      details: 'Our AI continuously analyzes spending patterns, income volatility, bill payment behaviour, and loan intent signals. Risk scores update live.',
+    },
+    {
+      icon: <UserCheck />,
+      title: 'First-Time Borrower Scoring',
+      description: 'No loan history? No problem.',
+      details: 'AltCred identifies creditworthiness for students, gig workers, new employees, freelancers, and first-time borrowers. Unlocks a huge untapped market.',
+    },
+    {
+      icon: <Zap />,
+      title: 'Instant Verification & Onboarding',
+      description: 'Reduce onboarding time from days to minutes.',
+      details: 'Automated KYC, transaction pattern scanning, digital profile building, and instant fraud checks. Smoothest customer onboarding in the lending ecosystem.',
+    },
+    {
+      icon: <Eye />,
+      title: 'Transparent, Bias-Free Evaluation',
+      description: 'Eliminates human, location, and background bias.',
+      details: 'AltCred scoring is based only on real behaviour, not personal identity. Fair evaluation for everyone.',
+    },
+    {
+      icon: <BarChart3 />,
+      title: 'Lender Dashboard & Insights',
+      description: 'Powerful analytics for confident lending.',
+      details: 'Portfolio quality analysis, risk heatmaps, user cohort performance, default probability scores, and policy simulation tools. Actionable insights.',
+    },
+    {
+      icon: <Shield />,
+      title: 'Secure & Compliant by Design',
+      description: 'Bank-level security and compliance.',
+      details: 'Bank-level encryption, no sensitive data leakage, 100% compliant with RBI guidelines, and transparent data usage. Trustworthy infrastructure.',
+    },
+    {
+      icon: <Code />,
+      title: 'API-First Integration',
+      description: 'Plug-in and start scoring instantly.',
+      details: 'Integrate AltCred scoring engine with banking systems, loan apps, BNPL platforms, and fintech backends seamlessly.',
+    },
+  ];
+
+  const fadeInUp = {
+    initial: { opacity: 0, y: 50 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+  };
+
+  const staggerDelay = (index) => ({ delay: index * 0.1 });
+
+  const backgroundStyle = {
+    minHeight: '100vh',
+    backgroundColor: '#0a0a0f',
+    backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px)',
+    backgroundSize: '18px 18px',
+    animation: 'dots-move 14s linear infinite',
+    position: 'relative',
+  };
+
   return (
-    <div style={{
-      minHeight: '100vh',
-      backgroundColor: '#0a0a0f',
-      backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px)',
-      backgroundSize: '18px 18px',
-      animation: 'dots-move 14s linear infinite',
-      position: 'relative'
-    }}>
+    <div style={backgroundStyle}>
       <Navbar />
-      <main className={styles.mainContainer} style={{ background: 'transparent', position: 'relative' }}>
-        
-        <section className={styles.section} style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h1 style={{ fontSize: '42px', marginBottom: '20px', color: '#40a8c8', fontWeight: '600' }}>
-            AltCred Features
-          </h1>
-          <p style={{ fontSize: '22px', lineHeight: '1.8', color: '#87ceeb', fontStyle: 'italic' }}>
-            Designed for lenders. Built for inclusion. Powered by AI.
-          </p>
-        </section>
+      <div className="relative min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-20"
+          >
+            <h1 className="text-6xl font-bold text-white mb-6">
+              AltCred <span className="bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">Features</span>
+            </h1>
+            <p className="text-2xl text-gray-300">
+              Designed for lenders. Built for inclusion. Powered by AI.
+            </p>
+          </motion.div>
 
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            ⭐ 1. Behaviour-Based Credit Score
-          </h2>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', marginBottom: '20px', color: '#ededed' }}>
-            Move beyond outdated CIBIL-only models.
-          </p>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', color: '#ededed' }}>
-            AltCred evaluates UPI patterns, digital payments, income habits, and more — creating a 360° behavioural profile of every customer.
-          </p>
-        </section>
+          <div className="grid lg:grid-cols-2 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={staggerDelay(index)}
+                whileHover={{ scale: 1.03, y: -8 }}
+                className="group relative"
+              >
+                <div className="p-8 bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-sm border border-cyan-500/20 rounded-2xl hover:border-cyan-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/30 h-full">
+                  <motion.div
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                    className="inline-block mb-6 p-4 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-xl"
+                  >
+                    <div className="text-cyan-400 w-10 h-10">{feature.icon}</div>
+                  </motion.div>
 
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            ⭐ 2. Real-Time Risk Engine
-          </h2>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', marginBottom: '20px', color: '#ededed' }}>
-            Our AI continuously analyzes your customer's:
-          </p>
-          <ul style={{ 
-            listStyle: 'none', 
-            padding: 0, 
-            marginBottom: '20px',
-            fontSize: '16px',
-            lineHeight: '2',
-            color: '#ededed'
-          }}>
-            <li>• Spending patterns</li>
-            <li>• Income volatility</li>
-            <li>• Bill payment behaviour</li>
-            <li>• Loan intent signals</li>
-          </ul>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', color: '#ededed' }}>
-            Risk scores update live, helping lenders make accurate, instant decisions.
-          </p>
-        </section>
+                  <h3 className="text-2xl font-bold text-white mb-3">
+                    {index + 1}. {feature.title}
+                  </h3>
+                  <p className="text-cyan-400 text-lg mb-4 font-semibold">{feature.description}</p>
+                  <p className="text-gray-300 leading-relaxed">{feature.details}</p>
 
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            ⭐ 3. First-Time Borrower Scoring
-          </h2>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', marginBottom: '20px', color: '#87ceeb', fontStyle: 'italic' }}>
-            No loan history? No problem.
-          </p>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', marginBottom: '20px', color: '#ededed' }}>
-            AltCred identifies creditworthiness for:
-          </p>
-          <ul style={{ 
-            listStyle: 'none', 
-            padding: 0, 
-            marginBottom: '20px',
-            fontSize: '16px',
-            lineHeight: '2',
-            color: '#ededed'
-          }}>
-            <li>• Students</li>
-            <li>• Gig workers</li>
-            <li>• New employees</li>
-            <li>• Freelancers</li>
-            <li>• First-time borrowers</li>
-          </ul>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', color: '#ededed' }}>
-            Unlocks a huge untapped market.
-          </p>
-        </section>
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            ⭐ 4. Instant Verification & Onboarding
-          </h2>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', marginBottom: '20px', color: '#ededed' }}>
-            Reduce onboarding time from days → minutes with:
-          </p>
-          <ul style={{ 
-            listStyle: 'none', 
-            padding: 0, 
-            marginBottom: '20px',
-            fontSize: '16px',
-            lineHeight: '2',
-            color: '#ededed'
-          }}>
-            <li>• Automated KYC</li>
-            <li>• Transaction pattern scanning</li>
-            <li>• Digital profile building</li>
-            <li>• Instant fraud checks</li>
-          </ul>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', color: '#ededed' }}>
-            Smoothest customer onboarding in the lending ecosystem.
-          </p>
-        </section>
-
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            ⭐ 5. Transparent, Bias-Free Evaluation
-          </h2>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', marginBottom: '20px', color: '#ededed' }}>
-            AltCred eliminates:
-          </p>
-          <ul style={{ 
-            listStyle: 'none', 
-            padding: 0, 
-            marginBottom: '20px',
-            fontSize: '16px',
-            lineHeight: '2',
-            color: '#ededed'
-          }}>
-            <li>• Human bias</li>
-            <li>• Location bias</li>
-            <li>• Background bias</li>
-          </ul>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', color: '#ededed' }}>
-            Scoring is based only on real behaviour, not personal identity.
-          </p>
-        </section>
-
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            ⭐ 6. Lender Dashboard & Insights
-          </h2>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', marginBottom: '20px', color: '#ededed' }}>
-            A powerful dashboard that provides:
-          </p>
-          <ul style={{ 
-            listStyle: 'none', 
-            padding: 0, 
-            marginBottom: '20px',
-            fontSize: '16px',
-            lineHeight: '2',
-            color: '#ededed'
-          }}>
-            <li>• Portfolio quality analysis</li>
-            <li>• Risk heatmaps</li>
-            <li>• User cohort performance</li>
-            <li>• Default probability scores</li>
-            <li>• Policy simulation tools</li>
-          </ul>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', color: '#87ceeb' }}>
-            Actionable insights → confident lending.
-          </p>
-        </section>
-
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            ⭐ 7. Secure & Compliant by Design
-          </h2>
-          <ul style={{ 
-            listStyle: 'none', 
-            padding: 0, 
-            marginBottom: '20px',
-            fontSize: '16px',
-            lineHeight: '2',
-            color: '#ededed'
-          }}>
-            <li>• Bank-level encryption</li>
-            <li>• No sensitive data leakage</li>
-            <li>• 100% compliant with RBI guidelines</li>
-            <li>• Transparent data usage</li>
-          </ul>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', color: '#ededed' }}>
-            Trustworthy infrastructure for both users and lenders.
-          </p>
-        </section>
-
-        <section className={styles.section} style={{ marginBottom: '80px' }}>
-          <h2 className={styles.sectionTitle}>
-            ⭐ 8. API-First Integration
-          </h2>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', marginBottom: '20px', color: '#ededed' }}>
-            Integrate AltCred's scoring engine with:
-          </p>
-          <ul style={{ 
-            listStyle: 'none', 
-            padding: 0, 
-            marginBottom: '20px',
-            fontSize: '16px',
-            lineHeight: '2',
-            color: '#ededed'
-          }}>
-            <li>• Banking systems</li>
-            <li>• Loan apps</li>
-            <li>• BNPL platforms</li>
-            <li>• Fintech backends</li>
-          </ul>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', color: '#87ceeb', fontStyle: 'italic' }}>
-            Plug-in and start scoring instantly.
-          </p>
-        </section>
-
-      </main>
+          <motion.div {...fadeInUp} className="mt-20 text-center">
+            <div className="bg-gradient-to-r from-cyan-500/20 to-blue-600/20 backdrop-blur-sm border border-cyan-500/40 rounded-3xl p-12">
+              <h2 className="text-4xl font-bold text-white mb-6">
+                Ready to transform your lending process?
+              </h2>
+              <p className="text-xl text-gray-300 mb-8">
+                Experience the power of alternative credit scoring
+              </p>
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 217, 255, 0.6)' }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => (window.location.href = '/financial-assessment')}
+                className="px-12 py-5 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white text-xl rounded-lg font-bold shadow-2xl shadow-cyan-500/50 hover:shadow-cyan-500/70 transition-all duration-300"
+              >
+                Get Started Now
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
+export default Features;
