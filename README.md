@@ -1,101 +1,33 @@
-# AltCred - Alternative Credit Scoring Platform
-# UNDER CONSTRUCTION
+# AltCred - AI-Driven Alternative Credit Scoring
 
-AltCred is a modern alternative credit scoring platform that uses alternative data and AI to generate credit scores for millions of "credit invisible" people, helping them access financial products they deserve.
+**AltCred** is a financial inclusion platform that uses alternative data points to generate credit scores for individuals with little to no credit history. By analyzing factors like employment stability, income patterns, and financial discipline, AltCred provides a fair and dynamic assessment of creditworthiness.
 
-## 🚀 Tech Stack
+![AltCred Dashboard](frontend/public/Screenshot_2025-11-30_at_10.59.20_AM-removebg-preview.png)
 
-This is a **PERN Stack** project:
+## 🚀 Features
 
-- **Frontend**: Next.js 14 (React 18) with JavaScript
-- **Backend**: Node.js with Express.js
-- **Database**: PostgreSQL with Prisma ORM
-- **Authentication**: JWT-based authentication
+*   **Financial Assessment Engine**: A comprehensive 10-point questionnaire capturing alternative data (income stability, savings buffer, digital behavior).
+*   **ML Scoring Model**: A weighted algorithmic engine that processes raw inputs into a normalized FICO-like score (300-850).
+*   **Real-time Dashboard**: Visualizes credit scores with color-coded risk categories and detailed factor breakdowns.
+*   **Secure Authentication**: JWT-based Login and Signup system with protected routes.
+*   **Responsive Design**: Modern, dark-themed UI built with Next.js and Framer Motion.
 
-## ✨ Features
+## 🛠️ Tech Stack
 
-### Frontend Features
-- ✅ **Modern React UI**: Built with Next.js for optimal performance
-- ✅ **Custom Triangle Cursor**: Smooth, animated custom cursor
-- ✅ **Smooth Animations**: Scroll-triggered fade-in animations
-- ✅ **Responsive Design**: Mobile-friendly with hamburger menu
-- ✅ **Modal Forms**: Interactive get-started modal
-- ✅ **Button Interactions**: Ripple effects on buttons
-- ✅ **Dark Theme**: Beautiful sky-blue themed UI
+*   **Frontend**: Next.js (Pages Router), React, Tailwind CSS, Framer Motion
+*   **Backend**: Node.js, Express.js
+*   **Database**: Supabase (PostgreSQL)
+*   **Authentication**: JWT (JSON Web Tokens)
+*   **ML/Logic**: Custom Weighted Scoring Algorithm (Node.js)
 
-### Backend Features
-- ✅ **RESTful API**: Express.js backend with proper routing
-- ✅ **JWT Authentication**: Secure token-based authentication
-- ✅ **Prisma ORM**: Type-safe database operations
-- ✅ **User Management**: User registration, login, profile management
-- ✅ **Credit Scoring**: Credit score calculation system (in development)
-- ✅ **Transaction Tracking**: Track user transactions
-- ✅ **Credit Reports**: Generate detailed credit reports
+## ⚙️ Installation & Setup
 
-## 📁 Project Structure
+### Prerequisites
+*   Node.js (v16+)
+*   NPM
+*   A Supabase account
 
-```
-AltCred-1/
-├── frontend/                 # Next.js React Application
-│   ├── components/          # React components
-│   │   ├── CustomCursor.js
-│   │   ├── Navbar.js
-│   │   ├── Hero.js
-│   │   ├── ProblemSection.js
-│   │   ├── SolutionSection.js
-│   │   ├── ScoringSection.js
-│   │   ├── ScoreSegmentsSection.js
-│   │   ├── FeaturesSection.js
-│   │   ├── TechStackSection.js
-│   │   ├── CTASection.js
-│   │   ├── Footer.js
-│   │   └── GetStartedModal.js
-│   ├── hooks/               # Custom React hooks
-│   │   ├── useCustomCursor.js
-│   │   ├── useScrollAnimations.js
-│   │   └── useNavbarScroll.js
-│   ├── pages/              # Next.js pages
-│   │   ├── _app.js
-│   │   ├── _document.js
-│   │   └── index.js
-│   ├── styles/             # Global styles
-│   │   └── globals.css
-│   └── public/             # Static assets
-│       └── logo.png
-│
-├── backend/                 # Express.js Backend API
-│   ├── prisma/             # Prisma schema and migrations
-│   │   ├── schema.prisma
-│   │   └── migrations/
-│   ├── src/
-│   │   ├── config/         # Configuration files
-│   │   ├── constants/      # Constants (scoring, errors, etc.)
-│   │   ├── controllers/    # Route controllers
-│   │   ├── middleware/     # Express middleware
-│   │   ├── models/         # Database models
-│   │   ├── routes/         # API routes
-│   │   ├── services/       # Business logic
-│   │   └── utils/          # Utility functions
-│   └── server.js           # Express server entry point
-│
-└── docs/                    # Documentation
-    ├── api-endpoints.md
-    ├── architecture-diagram.md
-    ├── data-models.md
-    └── vision.md
-```
-
-## 🛠️ Prerequisites
-
-- **Node.js** >= 14.0.0
-- **npm** or **yarn**
-- **PostgreSQL** database
-- **Git**
-
-## 📦 Installation
-
-### 1. Clone the repository
-
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/Archisman-NC/AltCred.git
 cd AltCred
