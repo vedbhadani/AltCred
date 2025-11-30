@@ -90,7 +90,7 @@ export default function FinancialAssessment() {
             position: 'relative'
         }}>
             <Navbar />
-            <div className={styles['fa-container']}>
+            <div className={styles['fa-container']} style={{ paddingTop: '120px' }}>
                 <header className={styles['fa-header']}>
                     <h1 className={styles['fa-title']}>Financial Health Assessment</h1>
                     <p className={styles['fa-subtitle']}>
