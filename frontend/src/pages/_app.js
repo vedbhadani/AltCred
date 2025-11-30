@@ -6,9 +6,10 @@ import CustomCursor from '@/components/CustomCursor';
 
 export default function App({ Component, pageProps }) {
     return (
-        <div style={{ cursor: 'none' }}>
+        // <div style={{ cursor: 'none' }}>
+        <div>
             <DottedBackground />
-            <CustomCursor />
+            {/* <CustomCursor /> */}
             <Component {...pageProps} />
         </div>
     );

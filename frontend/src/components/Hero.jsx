@@ -23,7 +23,7 @@ export default function Hero() {
         marginBottom: '60px',
         lineHeight: '1.6'
       }}>
-        Using intelligent analysis of UPI behaviour, transaction patterns, digital footprints, and earning stability, AltCred builds a <strong>real, dynamic, behaviour-based credit score</strong> — not just a historical one.
+        Using intelligent analysis of transaction patterns, digital footprints, and earning stability, AltCred builds a <strong>real, dynamic, behaviour-based credit score</strong> — not just a historical one.
       </p>
     </div>
   );
