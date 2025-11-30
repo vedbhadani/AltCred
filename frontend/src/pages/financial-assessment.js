@@ -1,15 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/router";
 import styles from "@/styles/FinancialAssessment.module.css";
 import Navbar from "@/components/Navbar";
 import { QUESTIONS } from "@/utils/questions";
 import { QuestionCard } from "@/components/QuestionCard";
+import { API_ENDPOINTS, apiClient } from "@/utils/api";
 
 export default function FinancialAssessment() {
+    const router = useRouter();
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(false);
     const [err, setErr] = useState(null);
+    const [success, setSuccess] = useState(false);
 
     function handleChange(id, val) {
         setData(prev => ({ ...prev, [id]: val }));
@@ -20,6 +24,7 @@ export default function FinancialAssessment() {
         e.preventDefault();
         setLoading(true);
         setErr(null);
+        setSuccess(false);
 
         const missing = QUESTIONS.filter(q => !data[q.id]);
 
@@ -30,14 +35,40 @@ export default function FinancialAssessment() {
         }
 
         try {
-            await new Promise(r => setTimeout(r, 1000));
+            // Get JWT token from localStorage (assuming user is logged in)
+            const token = localStorage.getItem('accessToken');
 
-            console.log("Submitting:", data);
-            alert("Assessment saved.");
+            if (!token) {
+                setErr("Please log in to submit your assessment.");
+                setLoading(false);
+                // Redirect to login after 2 seconds
+                setTimeout(() => {
+                    router.push('/login');
+                }, 2000);
+                return;
+            }
 
-        } catch (e) {
-            console.error(e);
-            setErr("Submission failed.");
+            // Submit to backend
+            const response = await apiClient.post(
+                API_ENDPOINTS.INTAKE.SAVE_ANSWERS,
+                { answers: data },
+                token
+            );
+
+            console.log("Success:", response);
+            setSuccess(true);
+
+            // Show success message
+            alert("Assessment saved successfully! Your credit score will be calculated shortly.");
+
+            // Optionally redirect to dashboard after 2 seconds
+            setTimeout(() => {
+                router.push('/dashboard');
+            }, 2000);
+
+        } catch (error) {
+            console.error("Submission error:", error);
+            setErr(error.message || "Submission failed. Please try again.");
         } finally {
             setLoading(false);
         }
@@ -45,12 +76,12 @@ export default function FinancialAssessment() {
 
     return (
         <div style={{
-            minHeight:'100vh',
-            backgroundColor:'#0a0a0f',
-            backgroundImage:'radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px)',
-            backgroundSize:'18px 18px',
+            minHeight: '100vh',
+            backgroundColor: '#0a0a0f',
+            backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px)',
+            backgroundSize: '18px 18px',
             animation: 'dots-move 14s linear infinite',
-            position:'relative'
+            position: 'relative'
         }}>
             <Navbar />
             <div className={styles['fa-container']}>
@@ -72,13 +103,18 @@ export default function FinancialAssessment() {
                     ))}
 
                     {err && <div className={styles['fa-error-msg']}>{err}</div>}
+                    {success && (
+                        <div className={styles['fa-success-msg']}>
+                            ✓ Assessment saved successfully! Redirecting...
+                        </div>
+                    )}
 
                     <button
                         type="submit"
                         className={styles['fa-submit-btn']}
-                        disabled={loading}
+                        disabled={loading || success}
                     >
-                        {loading ? "Saving..." : "Submit Assessment"}
+                        {loading ? "Saving..." : success ? "Saved ✓" : "Submit Assessment"}
                     </button>
                 </form>
             </div>

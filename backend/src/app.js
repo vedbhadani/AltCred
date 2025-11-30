@@ -5,6 +5,7 @@ const apiCors = require("./modules/auth/middlewares/cors");
 const errorHandler = require("./modules/auth/middlewares/errorHandler");
 const authRoutes = require("./modules/auth/routes/auth.routes");
 const intakeRoutes = require("./modules/intake/routes/intake.routes");
+const creditScoreRoutes = require("./modules/credit-score/routes/creditScore.routes");
 
 const app = express();
 app.use(express.json());
@@ -17,6 +18,7 @@ app.use(rateLimiter);
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/intake", intakeRoutes);
+app.use("/api/v1/credit-score", creditScoreRoutes);
 
 
 app.use((req, res) => {
