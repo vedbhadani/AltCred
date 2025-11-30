@@ -2,12 +2,9 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { CheckCircle, TrendingUp, Users, Shield, Zap, Activity } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const Home = () => {
-  const stats = [
-    { value: '10+', label: 'Years Experience' },
-    { value: '5★', label: 'Rating' },
-  ];
 
   const features = [
     'Works for first-time borrowers',
@@ -99,16 +96,7 @@ const Home = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.8 }}
                 >
-                  {stats.map((stat, index) => (
-                    <motion.div
-                      key={index}
-                      whileHover={{ scale: 1.1 }}
-                      className="text-center"
-                    >
-                      <div className="text-4xl font-bold text-cyan-400 mb-2">{stat.value}</div>
-                      <div className="text-gray-400 text-sm">{stat.label}</div>
-                    </motion.div>
-                  ))}
+
                 </motion.div>
               </motion.div>
 
@@ -290,6 +278,7 @@ const Home = () => {
           </motion.div>
         </section>
       </div>
+      
     </div>
   );
 };
