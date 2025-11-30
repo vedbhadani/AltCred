@@ -3,8 +3,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle, TrendingUp, Users, Shield, Activity } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import { useEffect, useState } from 'react';
+import { getToken } from '@/utils/auth';
 
 export default function Home() {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    useEffect(() => {
+        const token = getToken();
+        setIsAuthenticated(!!token);
+    }, []);
+
     const stats = [
         { value: '10+', label: 'Years Experience' },
         { value: '5★', label: 'Rating' },
@@ -66,7 +75,7 @@ export default function Home() {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.6 }}
                                 >
-                                    <Link href="/financial-assessment">
+                                    <Link href={isAuthenticated ? "/dashboard" : "/login"}>
                                         <motion.button
                                             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 217, 255, 0.6)' }}
                                             whileTap={{ scale: 0.95 }}
@@ -276,7 +285,7 @@ export default function Home() {
                             Credit for everyone. Intelligence for lenders.
                         </h2>
                         <p className="text-2xl text-cyan-400 mb-8">That's AltCred.</p>
-                        <Link href="/financial-assessment">
+                        <Link href={isAuthenticated ? "/dashboard" : "/login"}>
                             <motion.button
                                 whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 217, 255, 0.6)' }}
                                 whileTap={{ scale: 0.95 }}

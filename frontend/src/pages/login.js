@@ -28,7 +28,7 @@ export default function Login() {
         setLoading(true);
         setError(null);
 
-       try {
+        try {
             const response = await apiClient.post(API_ENDPOINTS.AUTH.LOGIN, {
                 email: formData.email,
                 password: formData.password,
@@ -45,7 +45,7 @@ export default function Login() {
                 throw new Error("Invalid response from server");
             }
         } catch (err) {
-            console.error("Login error:", err);
+            console.warn("Login attempt failed:", err.message);
             if (err.response) {
                 // Handle specific error messages from the backend
                 if (err.response.status === 401) {

@@ -67,7 +67,7 @@ export default function Dashboard() {
     return (
         <div style={backgroundStyle}>
             <Navbar />
-            <div className={styles['dashboard-container']}>
+            <div className={styles['dashboard-container']} style={{ paddingTop: '120px' }}>
                 <header className={styles['dashboard-header']}>
                     <div className={styles['welcome-text']}>
                         <motion.h1

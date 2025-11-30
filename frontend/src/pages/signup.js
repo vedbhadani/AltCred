@@ -56,8 +56,8 @@ export default function Signup() {
                 throw new Error("Registration failed");
             }
         } catch (err) {
-            console.error("Signup error:", err);
-           if (err.response) {
+            console.warn("Signup attempt failed:", err.message);
+            if (err.response) {
                 setError(err.response.message || "Registration failed. Please try again.");
             } else {
                 setError(err.message || "Registration failed. Please check your details and try again.");
