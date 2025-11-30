@@ -1,6 +1,6 @@
 'use client';
 
-import "@/app/globals.css";
+import "@/styles/globals.css";
 import DottedBackground from '@/components/DottedBackground';
 import CustomCursor from '@/components/CustomCursor';
 
