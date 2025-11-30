@@ -162,13 +162,16 @@ const Contributors = () => {
               <p className="text-xl text-gray-300 mb-8">
                 Join us in building the future of alternative credit scoring and financial inclusion.
               </p>
-              <motion.button
+              <motion.a
+                href="https://github.com/Archisman-NC/AltCred"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 217, 255, 0.6)' }}
                 whileTap={{ scale: 0.95 }}
-                className="px-12 py-5 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white text-xl rounded-lg font-bold shadow-2xl shadow-cyan-500/50 hover:shadow-cyan-500/70 transition-all duration-300"
+                className="inline-block px-12 py-5 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white text-xl rounded-lg font-bold shadow-2xl shadow-cyan-500/50 hover:shadow-cyan-500/70 transition-all duration-300"
               >
                 Join as a Contributor
-              </motion.button>
+              </motion.a>
             </div>
           </motion.div>
         </div>
