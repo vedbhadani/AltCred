@@ -5,7 +5,7 @@ const jwt =require("../utils/auth.utils")
 const register=async(req,res)=>{
     const {full_name,email,password}=req.body
     try{
-        const {data:user}=await supabase
+    const {data:user}=await supabase
     .from("users")
     .select("*")
     .eq("email",email)
@@ -26,7 +26,6 @@ const register=async(req,res)=>{
       return res.status(500).json({ message: "Error creating user", details: error.message });
     }
 
-
     const accessToken = jwt.generateAccessToken(newUser);
     const refreshToken = jwt.generateRefreshToken(newUser);
 
@@ -40,7 +39,6 @@ const register=async(req,res)=>{
     return res.status(500).json({ message: "Server error", details: err.message });
   }
 }
-
 
 const login=async(req,res)=>{
     const {email,password}=req.body
