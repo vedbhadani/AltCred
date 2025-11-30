@@ -7,6 +7,12 @@ import { useEffect, useState } from 'react';
 import { getToken } from '@/utils/auth';
 
 export default function Home() {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    useEffect(() => {
+        const token = getToken();
+        setIsAuthenticated(!!token);
+    }, []);
 
     const features = [
         'Works for first-time borrowers',
