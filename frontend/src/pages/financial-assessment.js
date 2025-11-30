@@ -49,17 +49,23 @@ export default function FinancialAssessment() {
             }
 
             // Submit to backend
-            const response = await apiClient.post(
+            await apiClient.post(
                 API_ENDPOINTS.INTAKE.SAVE_ANSWERS,
                 { answers: data },
                 token
             );
 
-            console.log("Success:", response);
+            // Trigger score calculation immediately
+            await apiClient.post(
+                API_ENDPOINTS.CREDIT_SCORE.CALCULATE,
+                {},
+                token
+            );
+
             setSuccess(true);
 
             // Show success message
-            alert("Assessment saved successfully! Your credit score will be calculated shortly.");
+            alert("Assessment saved! Your new credit score has been calculated.");
 
             // Optionally redirect to dashboard after 2 seconds
             setTimeout(() => {
