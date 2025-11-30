@@ -28,25 +28,40 @@ export default function Login() {
         setLoading(true);
         setError(null);
 
-        try {
-            const response = await apiClient.post(API_ENDPOINTS.AUTH.LOGIN, formData);
+       try {
+            const response = await apiClient.post(API_ENDPOINTS.AUTH.LOGIN, {
+                email: formData.email,
+                password: formData.password,
+            });
 
-            if (response.success && response.data?.accessToken) {
+            console.log('Login response:', response); // Debug log
+
+            if (response.accessToken) {
                 // Save token
-                saveToken(response.data.accessToken);
-
+                saveToken(response.accessToken);
                 // Redirect to dashboard
                 router.push("/dashboard");
             } else {
-                throw new Error("Login failed. Please check your credentials.");
+                throw new Error("Invalid response from server");
             }
         } catch (err) {
             console.error("Login error:", err);
-            setError(err.message || "Invalid email or password");
+            if (err.response) {
+                // Handle specific error messages from the backend
+                if (err.response.status === 401) {
+                    setError("Invalid email or password. Please try again.");
+                } else {
+                    setError(err.response.message || "Login failed. Please try again.");
+                }
+            } else if (err.message.includes("Failed to fetch")) {
+                setError("Unable to connect to the server. Please check your connection.");
+            } else {
+                setError(err.message || "An unexpected error occurred. Please try again.");
+            }
         } finally {
             setLoading(false);
         }
-    };
+    }
 
     return (
         <div style={backgroundStyle}>

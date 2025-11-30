@@ -1,5 +1,5 @@
 // API Configuration
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
 export const API_ENDPOINTS = {
     // Auth endpoints
@@ -40,7 +40,9 @@ export const apiClient = {
         const result = await response.json();
 
         if (!response.ok) {
-            throw new Error(result.message || 'Request failed');
+            const error = new Error(result.message || 'Request failed');
+            error.response = result
+            throw error;
         }
 
         return result;
