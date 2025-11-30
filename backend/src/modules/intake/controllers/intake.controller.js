@@ -1,4 +1,4 @@
-const {storeIntake} = require("../services/intake.service")
+const {intakeData} = require("../services/intake.service")
 const {supabase} =require("../../../config/supabase")
 
 async function saveAnswers(req,res,next){
@@ -17,7 +17,7 @@ async function saveAnswers(req,res,next){
       })
     }
 
-    const stored = await storeIntake(req.user.id, req.body.answers);
+    const stored = await intakeData(req.user.id, req.body.answers);
     res.status(201).json({success: true,stored})
   } catch (err) {
     console.error('Error in saveAnswers:',err)

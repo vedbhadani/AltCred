@@ -1,8 +1,8 @@
 const express = require('express');
 const helmet = require('helmet');
-const rateLimiter = require("./middlewares/rateLimiter");
-const apiCors = require("./middlewares/cors");
-const errorHandler = require("./middlewares/errorHandler");
+const rateLimiter = require("./modules/auth/middlewares/rateLimiter");
+const apiCors = require("./modules/auth/middlewares/cors");
+const errorHandler = require("./modules/auth/middlewares/errorHandler");
 const authRoutes = require("./modules/auth/routes/auth.routes");
 const intakeRoutes = require("./modules/intake/routes/intake.routes");
 
