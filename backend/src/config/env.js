@@ -1,8 +1,7 @@
 require("dotenv").config();
-
-const envKeys = [
+const envKeys =[
   "SUPABASE_URL",
-  "SUPABASE_ANON_KEY",
+  "SUPABASE_SERVICE_ROLE_KEY",
   "JWT_ACCESS_SECRET",
   "JWT_REFRESH_SECRET",
 ];
@@ -15,7 +14,7 @@ envKeys.forEach((key) => {
 
 module.exports = {
   supabaseUrl: process.env.SUPABASE_URL,
-  supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
+  supabaseSecretKey: process.env.SUPABASE_SERVICE_ROLE_KEY,
   jwtAccessSecret: process.env.JWT_ACCESS_SECRET,
   jwtRefreshSecret: process.env.JWT_REFRESH_SECRET,
 };

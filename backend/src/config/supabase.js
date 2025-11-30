@@ -1,6 +1,8 @@
 const {createClient}=require("@supabase/supabase-js");
-const {supabaseUrl,supabaseAnonKey}=require("./env");
+const {supabaseUrl,supabaseSecretKey}=require("./env");
 
-const supabase=createClient(supabaseUrl,supabaseAnonKey);
+const supabase = createClient(supabaseUrl,supabaseSecretKey , {
+  auth: { persistSession: false },
+});
 
 module.exports={supabase};
