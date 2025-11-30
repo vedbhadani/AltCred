@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import styles from "@/styles/Auth.module.css";
 import { API_ENDPOINTS, apiClient } from "@/utils/api";
+import { saveToken } from "@/utils/auth";
 
 export default function Signup() {
     const router = useRouter();
@@ -50,8 +51,10 @@ export default function Signup() {
             });
 
             if (response.user && response.accessToken) {
-                // Redirect to login
-                router.push("/login?registered=true");
+                // Save token
+                saveToken(response.accessToken);
+                // Redirect to dashboard
+                router.push("/dashboard");
             } else {
                 throw new Error("Registration failed");
             }
