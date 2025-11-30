@@ -4,7 +4,6 @@ import styles from "@/styles/FinancialAssessment.module.css";
 export const QuestionCard = ({ questionData, currentAnswer, onAnswerChange }) => {
   
   const handleValueChange = (e) => {
-    // defensive check just in case
     if (!onAnswerChange) return;
     onAnswerChange(questionData.id, e.target.value);
   };

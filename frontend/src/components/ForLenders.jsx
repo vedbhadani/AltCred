@@ -1,5 +1,5 @@
-
 import styles from '@/app/page.module.css';
+
 export default function ForLenders() {
   return (
     <section className={styles.section}>
