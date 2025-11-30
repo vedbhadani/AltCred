@@ -58,6 +58,10 @@ const Navbar = () => {
                             </Link>
                         ))}
 
+                        {/* Auth logic: 
+                            If logged in -> Show Dashboard, Get Started, Logout
+                            If not -> Show Login, Sign Up 
+                        */}
                         {isAuthenticated ? (
                             <div className="flex items-center space-x-4">
                                 <Link
@@ -66,6 +70,14 @@ const Navbar = () => {
                                 >
                                     Dashboard
                                 </Link>
+
+
+                                <Link href="/financial-assessment">
+                                    <button className="bg-white text-slate-900 hover:bg-gray-100 px-6 py-2.5 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                                        Get Started
+                                    </button>
+                                </Link>
+
                                 <button
                                     onClick={handleLogout}
                                     className="text-gray-300 hover:text-red-400 font-medium transition-colors duration-200"
@@ -89,13 +101,8 @@ const Navbar = () => {
                             </div>
                         )}
 
-                        <Link href="/financial-assessment">
-                            <button className="bg-white text-slate-900 hover:bg-gray-100 px-6 py-2.5 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 ml-2">
-                                Get Started
-                            </button>
-                        </Link>
-                    </div>
 
+                    </div>
 
 
                 </div>

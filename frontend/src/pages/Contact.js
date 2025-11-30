@@ -21,11 +21,11 @@ const Contact = () => {
     // TODO: Connect this to the actual backend API
     console.log('Form submitted:', formData);
     alert('Thanks for reaching out! We will get back to you soon.');
-    // reset form
+    
     setFormData({ name: '', email: '', message: '' });
   };
 
-  // Stolen from Home.js for consistency
+
   const backgroundStyle = {
     minHeight: '100vh',
     backgroundColor: '#0a0a0f',
@@ -42,7 +42,7 @@ const Contact = () => {
       <div className="relative min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
 
-          {/* Header Section */}
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ const Contact = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
 
-            {/* Contact Info Column */}
+
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -119,7 +119,7 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            {/* Form Column */}
+             
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -188,7 +188,7 @@ const Contact = () => {
         </div>
       </div>
 
-      <Footer />
+      
     </div>
   );
 };
