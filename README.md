@@ -9,7 +9,7 @@ This is a **PERN Stack** project:
 
 - **Frontend**: Next.js 14 (React 18) with JavaScript
 - **Backend**: Node.js with Express.js
-- **Database**: PostgreSQL with Prisma ORM
+- **Database**: Supabase 
 - **Authentication**: JWT-based authentication
 
 ## ✨ Features
