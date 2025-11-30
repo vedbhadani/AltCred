@@ -11,7 +11,7 @@ import { API_ENDPOINTS, apiClient } from "@/utils/api";
 export default function Signup() {
     const router = useRouter();
     const [formData, setFormData] = useState({
-        name: "",
+        full_name: "",
         email: "",
         password: "",
         confirmPassword: "",
@@ -44,12 +44,12 @@ export default function Signup() {
 
         try {
             const response = await apiClient.post(API_ENDPOINTS.AUTH.REGISTER, {
-                name: formData.name,
+                full_name: formData.full_name,
                 email: formData.email,
                 password: formData.password,
             });
 
-            if (response.success) {
+            if (response.user && response.accessToken) {
                 // Redirect to login
                 router.push("/login?registered=true");
             } else {
@@ -57,7 +57,11 @@ export default function Signup() {
             }
         } catch (err) {
             console.error("Signup error:", err);
-            setError(err.message || "Registration failed. Please try again.");
+           if (err.response) {
+                setError(err.response.message || "Registration failed. Please try again.");
+            } else {
+                setError(err.message || "Registration failed. Please check your details and try again.");
+            }
         } finally {
             setLoading(false);
         }
@@ -90,14 +94,14 @@ export default function Signup() {
 
                     <form className={styles["auth-form"]} onSubmit={handleSubmit}>
                         <div className={styles["form-group"]}>
-                            <label htmlFor="name" className={styles["form-label"]}>Full Name</label>
+                            <label htmlFor="full_name" className={styles["form-label"]}>Full Name</label>
                             <input
                                 type="text"
-                                id="name"
-                                name="name"
+                                id="full_name"
+                                name="full_name"
                                 className={styles["form-input"]}
                                 placeholder="John Doe"
-                                value={formData.name}
+                                value={formData.full_name}
                                 onChange={handleChange}
                                 required
                             />
