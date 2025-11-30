@@ -14,10 +14,12 @@ export default function Home() {
       backgroundColor:'#0a0a0f',
       backgroundImage:'radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px)',
       backgroundSize:'18px 18px',
-      position:'relative'
-    }}>
+      animation: 'dots-move 14s linear infinite',
+      position:'relative',
+      zIndex: 0
+  }}>
       <Navbar />
-      <main className={styles.mainContainer}>
+      <main className={styles.mainContainer} style={{ background: 'transparent', position: 'relative' }}>
         <Hero/>
         <WhyAltCred/>
         <ForLenders/>

@@ -1,9 +1,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --bg-primary: #0a0a0f;      /* Main background */
-  --bg-secondary: #18181b;    /* Card backgrounds */
-  --bg-tertiary: #27272a;     /* Deeper backgrounds */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #18181b;
+  --bg-tertiary: #27272a;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -23,14 +23,14 @@ body {
 
 body {
   color: var(--foreground);
-  background-color: #0a0a0f;  /* Very dark blue/black */
+  background-color: #0a0a0f;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Animated Dotted Background */
 .bg-dots-animated {
+  background-color: #0a0a0f;
   background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
   background-size: 18px 18px;
   animation: dots-move 14s linear infinite;
@@ -41,7 +41,6 @@ body {
   from {background-position: 0 0;}
   to {background-position: 180px 180px;}}
 
-/* Navbar Glassmorphism */
 .navbar {background: rgba(10, 10, 15, 0.8);
    backdrop-filter: blur(10px);}
 * {box-sizing: border-box;padding: 0;margin: 0;}

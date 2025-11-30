@@ -21,7 +21,6 @@ export default function FinancialAssessment() {
         setLoading(true);
         setErr(null);
 
-        // check for missing fields
         const missing = QUESTIONS.filter(q => !data[q.id]);
 
         if (missing.length > 0) {
@@ -31,10 +30,6 @@ export default function FinancialAssessment() {
         }
 
         try {
-            // TODO: Replace with actual endpoint when backend is ready
-            // const res = await fetch('/api/assessment', { method: 'POST', body: JSON.stringify(data) });
-
-            // temporary mock delay
             await new Promise(r => setTimeout(r, 1000));
 
             console.log("Submitting:", data);
@@ -49,7 +44,14 @@ export default function FinancialAssessment() {
     };
 
     return (
-        <>
+        <div style={{
+            minHeight:'100vh',
+            backgroundColor:'#0a0a0f',
+            backgroundImage:'radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px)',
+            backgroundSize:'18px 18px',
+            animation: 'dots-move 14s linear infinite',
+            position:'relative'
+        }}>
             <Navbar />
             <div className={styles['fa-container']}>
                 <header className={styles['fa-header']}>
@@ -80,6 +82,6 @@ export default function FinancialAssessment() {
                     </button>
                 </form>
             </div>
-        </>
+        </div>
     );
 }

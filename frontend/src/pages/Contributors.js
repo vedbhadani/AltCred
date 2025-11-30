@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 
-export default function About() {
+export default function Contributors() {
   return (
     <div style={{
       minHeight:'100vh',
@@ -13,9 +13,10 @@ export default function About() {
     }}>
       <Navbar />
       <div style={{ padding: '40px', color: '#fff' }}>
-        <h1>About</h1>
-        <p>Welcome to AltCred. Learn more about us here.</p>
+        <h1>Contributors</h1>
+        <p>Contributors content will be added here.</p>
       </div>
     </div>
   );
 }
+
