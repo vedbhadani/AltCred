@@ -22,6 +22,10 @@ async function fetchUserAnswers(userId) {
         .single();
 
     if (error) {
+        // PGRST116 is the error code for "The result contains 0 rows" when using .single()
+        if (error.code === 'PGRST116' || error.message.includes('Cannot coerce')) {
+            throw new Error('No answers found for user');
+        }
         throw new Error(`Failed to fetch user answers: ${error.message}`);
     }
 
