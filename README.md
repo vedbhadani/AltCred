@@ -9,7 +9,7 @@ This is a **PERN Stack** project:
 
 - **Frontend**: Next.js 14 (React 18) with JavaScript
 - **Backend**: Node.js with Express.js
-- **Database**: Supabase 
+- **Database**: PostgreSQL with Prisma ORM
 - **Authentication**: JWT-based authentication
 
 ## ✨ Features
@@ -97,189 +97,86 @@ AltCred-1/
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
-cd AltCred-1
+git clone https://github.com/Archisman-NC/AltCred.git
+cd AltCred
 ```
 
-### 2. Install all dependencies
-
-```bash
-# Install backend dependencies
-npm run install:backend
-
-# Install frontend dependencies
-npm run install:frontend
-
-# Or install all at once
-npm run install:all
-```
-
-### 3. Database Setup
-
-1. Create a PostgreSQL database
-2. Copy `.env.example` to `.env` in the backend directory (create if doesn't exist)
-3. Update the `DATABASE_URL` in `backend/.env`:
-
-```env
-DATABASE_URL="postgresql://username:password@localhost:5432/altcred?schema=public"
-```
-
-4. Run Prisma migrations:
-
+### 2. Backend Setup
+Navigate to the backend folder and install dependencies:
 ```bash
 cd backend
-npm run prisma:migrate
-npm run prisma:generate
+npm install
 ```
 
-## 🚀 Development
+Create a `.env` file in the `backend` directory:
+```env
+PORT=4000
+SUPABASE_URL=your_supabase_url
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+JWT_ACCESS_SECRET=your_random_secret_string
+JWT_REFRESH_SECRET=your_random_secret_string
+```
 
-### Start Backend Server
+**Database Schema:**
+Run the SQL script located in `backend/src/modules/credit-score/schema.sql` in your Supabase SQL Editor to create the necessary tables.
 
+### 3. Frontend Setup
+Navigate to the frontend folder and install dependencies:
 ```bash
-# From root directory
-npm run dev:backend
+cd ../frontend
+npm install
+```
 
-# Or from backend directory
+Create a `.env.local` file in the `frontend` directory:
+```env
+NEXT_PUBLIC_API_URL=http://localhost:4000
+```
+
+### 4. Running the Application
+You need to run both servers simultaneously.
+
+**Start Backend:**
+```bash
 cd backend
 npm run dev
 ```
 
-Backend runs on `http://localhost:3001` (or configured PORT)
-
-### Start Frontend Server
-
+**Start Frontend:**
 ```bash
-# From root directory
-npm run dev:frontend
-
-# Or from frontend directory
 cd frontend
 npm run dev
 ```
 
-Frontend runs on `http://localhost:3000`
+Visit `http://localhost:3000` to view the app.
 
-### Start Both Servers
+## 🧠 How the Scoring Works
 
-Run both servers in separate terminals, or use a process manager like `concurrently`.
+The credit score is calculated based on 4 key pillars:
 
-## 🏗️ Build for Production
+1.  **Payment History (35%)**: Analyzes past loan behavior and bill payment discipline.
+2.  **Financial Stability (25%)**: Evaluates savings buffer and expense ratios.
+3.  **Income Factors (20%)**: Considers income amount and stability.
+4.  **Responsibility (20%)**: Looks at education level and number of dependents.
 
-### Frontend Build
+The raw answers are normalized to a 0-1 scale and processed through a weighted algorithm to generate a score between 300 and 850.
 
-```bash
-cd frontend
-npm run build
-npm start
+## 📂 Project Structure
+
 ```
-
-### Backend Build
-
-```bash
-cd backend
-npm start
+AltCred/
+├── backend/
+│   ├── src/
+│   │   ├── modules/
+│   │   │   ├── auth/          # Authentication logic
+│   │   │   ├── credit-score/  # ML Model & Scoring logic
+│   │   │   └── intake/        # Assessment form handling
+│   │   └── server.js          # Entry point
+├── frontend/
+│   ├── src/
+│   │   ├── pages/             # Next.js Pages (Dashboard, Login, etc.)
+│   │   ├── components/        # Reusable UI components
+│   │   └── utils/             # API clients & helpers
 ```
-
-## 📡 API Endpoints
-
-See [docs/api-endpoints.md](docs/api-endpoints.md) for detailed API documentation.
-
-### Authentication
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-- `GET /api/auth/me` - Get current user (protected)
-
-### Credit (Protected Routes)
-- `POST /api/credit/calculate` - Calculate credit score
-- `GET /api/credit/history` - Get credit history
-
-## 🎨 Features Included
-
-### Frontend
-- ✅ Custom triangle cursor animation
-- ✅ Smooth scroll animations
-- ✅ Navbar scroll effects
-- ✅ Modal with form handling
-- ✅ Responsive mobile menu
-- ✅ Button ripple effects
-- ✅ All original animations and interactions
-
-### Backend
-- ✅ User authentication (JWT)
-- ✅ User registration and login
-- ✅ Credit score models
-- ✅ Transaction tracking
-- ✅ Credit report generation
-- ✅ Database models (User, CreditScore, Transaction, CreditReport)
-
-## 🗄️ Database Schema
-
-The database includes the following models:
-
-- **User**: User accounts and authentication
-- **CreditScore**: Credit scores with factors
-- **Transaction**: Financial transactions
-- **CreditReport**: Detailed credit reports
-
-See [docs/data-models.md](docs/data-models.md) for detailed schema information.
-
-## 📝 Environment Variables
-
-### Backend (.env)
-
-```env
-DATABASE_URL="postgresql://user:password@localhost:5432/altcred"
-JWT_SECRET="your-secret-key"
-JWT_EXPIRES_IN="7d"
-PORT=3001
-NODE_ENV=development
-```
-
-### Frontend
-
-Next.js automatically handles environment variables. Create `.env.local` if needed.
-
-## 🧪 Testing
-
-```bash
-# Backend tests (when implemented)
-cd backend
-npm test
-
-# Frontend tests (when implemented)
-cd frontend
-npm test
-```
-
-## 📚 Documentation
-
-- [API Endpoints](docs/api-endpoints.md)
-- [Architecture Diagram](docs/architecture-diagram.md)
-- [Data Models](docs/data-models.md)
-- [Vision & Goals](docs/vision.md)
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👥 Authors
-
-AltCred Team
-
-## 🙏 Acknowledgments
-
-- Built with modern web technologies
-- Alternative credit scoring for financial inclusion
-
----
-
-**Note**: This project is under active development. Some features may be incomplete or in progress.
+This project is licensed under the MIT License.
