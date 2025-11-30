@@ -74,7 +74,7 @@ const Navbar = () => {
 
                                 <Link href="/financial-assessment">
                                     <button className="bg-white text-slate-900 hover:bg-gray-100 px-6 py-2.5 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                                        Get Started
+                                        Take Quiz
                                     </button>
                                 </Link>
 
