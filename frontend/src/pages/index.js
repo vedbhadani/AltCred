@@ -139,7 +139,6 @@ export default function Home() {
                         >
                             <p className="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
                                 Using intelligent analysis of{' '}
-                                <span className="text-cyan-400 font-semibold">UPI behaviour</span>,{' '}
                                 <span className="text-cyan-400 font-semibold">transaction patterns</span>,{' '}
                                 <span className="text-cyan-400 font-semibold">digital footprints</span>, and{' '}
                                 <span className="text-cyan-400 font-semibold">earning stability</span>, AltCred

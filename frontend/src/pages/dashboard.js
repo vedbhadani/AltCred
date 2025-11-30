@@ -39,8 +39,12 @@ export default function Dashboard() {
                 }
             }
         } catch (err) {
-            console.error('Error fetching score:', err);
-            setError(err.message);
+            console.warn('Error fetching score:', err.message);
+            if (err.message.includes('Please complete the financial assessment first')) {
+                setError("Please complete your financial assessment to view your credit score.");
+            } else {
+                setError(err.message);
+            }
         } finally {
             setLoading(false);
         }
