@@ -21,7 +21,7 @@ const Contact = () => {
     // TODO: Connect this to the actual backend API
     console.log('Form submitted:', formData);
     alert('Thanks for reaching out! We will get back to you soon.');
-    
+
     setFormData({ name: '', email: '', message: '' });
   };
 
@@ -91,7 +91,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-gray-400 text-sm">Call us</p>
-                      <p className="text-white font-medium">+91 (123) 456-7890</p>
+                      <p className="text-white font-medium">+91 95467 85861</p>
                       <p className="text-gray-500 text-xs mt-1">Mon-Fri, 9am - 6pm IST</p>
                     </div>
                   </div>
@@ -100,13 +100,13 @@ const Contact = () => {
                     <div className="p-3 bg-cyan-500/10 rounded-lg">
                       <MapPin className="w-6 h-6 text-cyan-400" />
                     </div>
-                    <div>
+                    {/* <div>
                       <p className="text-gray-400 text-sm">Visit us</p>
                       <p className="text-white font-medium">
                         AltCred HQ, Tech Park,<br />
                         Bangalore, Karnataka 560001
                       </p>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -119,7 +119,7 @@ const Contact = () => {
               </div>
             </motion.div>
 
-             
+
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -188,7 +188,7 @@ const Contact = () => {
         </div>
       </div>
 
-      
+
     </div>
   );
 };
