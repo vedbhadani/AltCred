@@ -69,7 +69,7 @@ You need to run both servers simultaneously.
 **Start Backend:**
 ```bash
 cd backend
-npm run dev
+node src/server.js
 ```
 
 **Start Frontend:**
@@ -107,7 +107,26 @@ AltCred/
 │   │   ├── pages/             # Next.js Pages (Dashboard, Login, etc.)
 │   │   ├── components/        # Reusable UI components
 │   │   └── utils/             # API clients & helpers
+└── docs/                      # Detailed Documentation
 ```
+
+## 📚 Documentation
+
+For more detailed information, please refer to the following documentation:
+
+*   [**API Endpoints**](docs/api-endpoints.md): Comprehensive list of available API routes and their usage.
+*   [**Architecture**](docs/architecture.md): High-level overview of the system architecture and design decisions.
+*   [**Data Models**](docs/datamodels.md): Detailed description of the database schema and data structures.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps to contribute:
+
+1.  Fork the repository.
+2.  Create a new branch (`git checkout -b feature/YourFeature`).
+3.  Commit your changes (`git commit -m 'Add some feature'`).
+4.  Push to the branch (`git push origin feature/YourFeature`).
+5.  Open a Pull Request.
 
 ## 📄 License
 This project is licensed under the MIT License.
