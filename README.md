@@ -32,13 +32,7 @@ git clone https://github.com/Archisman-NC/AltCred.git
 cd AltCred
 ```
 
-### 2. Backend Setup
-Navigate to the backend folder and install dependencies:
-```bash
-cd backend
-npm install
-```
-
+### 2. Setup Environment Variables
 Create a `.env` file in the `backend` directory:
 ```env
 PORT=4000
@@ -48,37 +42,39 @@ JWT_ACCESS_SECRET=your_random_secret_string
 JWT_REFRESH_SECRET=your_random_secret_string
 ```
 
-**Database Schema:**
-Run the SQL script located in `backend/src/modules/credit-score/schema.sql` in your Supabase SQL Editor to create the necessary tables.
-
-### 3. Frontend Setup
-Navigate to the frontend folder and install dependencies:
-```bash
-cd ../frontend
-npm install
-```
-
 Create a `.env.local` file in the `frontend` directory:
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:4000
 ```
+**Database Schema:**
+Run the SQL script located in `backend/src/modules/credit-score/schema.sql` in your Supabase SQL Editor to create the necessary tables.
 
-### 4. Running the Application
-You need to run both servers simultaneously.
+### 3. Quick Start
+In the root, run the following command on CLI
+```bash
+npm run install:all
+npm run dev:all
+```
+And you are all set.
 
-**Start Backend:**
+
+### 4. Starting Backend 
+Navigate to the backend folder and install dependencies:
 ```bash
 cd backend
-node src/server.js
+npm install
+npm run start
 ```
 
-**Start Frontend:**
+### 5. Starting Frontend
+Navigate to the frontend folder and install dependencies:
 ```bash
-cd frontend
+cd ../frontend
+npm install
 npm run dev
 ```
 
-Visit `http://localhost:3000` to view the app.
+Visit `http://localhost:4000` to view the app.
 
 ## 🧠 How the Scoring Works
 
