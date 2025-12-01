@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Twitter, Linkedin, Github, Mail } from 'lucide-react';
 import Logo from './Logo';
 
+
 const Footer = () => {
     // const currentYear = new Date().getFullYear(); 
     // hardcoding for now, fix later
@@ -28,19 +29,19 @@ const Footer = () => {
                         </p>
 
                         <div className="flex space-x-4">
-                            <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                            <Link href="/coming-soon" className="text-gray-400 hover:text-cyan-400 transition-colors">
                                 <Twitter size={20} />
-                            </a>
-                            <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                            </Link>
+                            <Link href="/coming-soon" className="text-gray-400 hover:text-cyan-400 transition-colors">
                                 <Linkedin size={20} />
-                            </a>
+                            </Link>
                             {/* github link */}
-                            <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                            <Link href="/coming-soon" className="text-gray-400 hover:text-cyan-400 transition-colors">
                                 <Github size={20} />
-                            </a>
-                            <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                            </Link>
+                            <Link href="/coming-soon" className="text-gray-400 hover:text-cyan-400 transition-colors">
                                 <Mail size={20} />
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
@@ -48,20 +49,20 @@ const Footer = () => {
                     <div>
                         <h3 className="text-white font-semibold mb-6">Product</h3>
                         <ul className="space-y-4">
-                            <li><Link href="/#features" className="text-gray-400 hover:text-cyan-400 text-sm">Features</Link></li>
+                            <li><Link href="/Features" className="text-gray-400 hover:text-cyan-400 text-sm">Features</Link></li>
                             <li><Link href="/#lenders" className="text-gray-400 hover:text-cyan-400 text-sm">For Lenders</Link></li>
                             <li><Link href="/financial-assessment" className="text-gray-400 hover:text-cyan-400 text-sm">Assessment</Link></li>
-                            <li><Link href="/pricing" className="text-gray-400 hover:text-cyan-400 text-sm">Pricing</Link></li>
+                            <li><Link href="/coming-soon" className="text-gray-400 hover:text-cyan-400 text-sm">Pricing</Link></li>
                         </ul>
                     </div>
 
                     <div>
                         <h3 className="text-white font-semibold mb-6">Company</h3>
                         <ul className="space-y-4">
-                            <li><Link href="/about" className="text-gray-400 hover:text-cyan-400 text-sm">About Us</Link></li>
-                            <li><Link href="/careers" className="text-gray-400 hover:text-cyan-400 text-sm">Careers</Link></li>
-                            <li><Link href="/blog" className="text-gray-400 hover:text-cyan-400 text-sm">Blog</Link></li>
-                            <li><Link href="/contact" className="text-gray-400 hover:text-cyan-400 text-sm">Contact</Link></li>
+                            <li><Link href="/About" className="text-gray-400 hover:text-cyan-400 text-sm">About Us</Link></li>
+                            <li><Link href="/coming-soon" className="text-gray-400 hover:text-cyan-400 text-sm">Careers</Link></li>
+                            <li><Link href="/coming-soon" className="text-gray-400 hover:text-cyan-400 text-sm">Blog</Link></li>
+                            <li><Link href="/Contact" className="text-gray-400 hover:text-cyan-400 text-sm">Contact</Link></li>
                         </ul>
                     </div>
 
@@ -69,17 +70,17 @@ const Footer = () => {
                         <h3 className="text-white font-semibold mb-6">Legal</h3>
                         <ul className="space-y-4">
                             <li>
-                                <Link href="/privacy" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">
+                                <Link href="/coming-soon" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">
                                     Privacy Policy
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/terms" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">
+                                <Link href="/coming-soon" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">
                                     Terms of Service
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/cookies" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">
+                                <Link href="/coming-soon" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">
                                     Cookie Policy
                                 </Link>
                             </li>
