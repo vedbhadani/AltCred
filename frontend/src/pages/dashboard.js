@@ -51,9 +51,9 @@ export default function Dashboard() {
     };
 
     const getScoreColor = (score) => {
-        if (score >= 750) return '#4ade80'; // Green
-        if (score >= 650) return '#60a5fa'; // Blue
-        if (score >= 550) return '#fbbf24'; // Yellow
+        if (score >= SCORE_THRESHOLDS.EXCELLENT) return '#4ade80'; // Green
+        if (score >= SCORE_THRESHOLDS.GOOD) return '#60a5fa'; // Blue
+        if (score >= SCORE_THRESHOLDS.FAIR) return '#fbbf24'; // Yellow
         return '#f87171'; // Red
     };
 

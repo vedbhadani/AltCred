@@ -1,3 +1,5 @@
+const { COMPONENT_WEIGHTS, SCORE_THRESHOLDS, SCORE_CATEGORIES } = require("../../../config/constants");
+
 /**
  * ML Model Service
  * Calculates credit score using weighted algorithm
@@ -9,21 +11,21 @@
  * @returns {Object} Component scores
  */
 function calculateComponentScores(features) {
-    // Payment History Component (35%)
+    // Payment History Component
     // Based on: pastLoanExperience, digitalBehavior
     const paymentHistory = (
         features.pastLoanExperience * 0.6 +
         features.digitalBehavior * 0.4
     );
 
-    // Financial Stability Component (25%)
+    // Financial Stability Component
     // Based on: savingsBuffer, expenseRatio
     const financialStability = (
         features.savingsBuffer * 0.6 +
         features.expenseRatio * 0.4
     );
 
-    // Income Factors Component (20%)
+    // Income Factors Component
     // Based on: employmentStability, monthlyIncome, incomeStability
     const incomeFactors = (
         features.employmentStability * 0.4 +
@@ -31,7 +33,7 @@ function calculateComponentScores(features) {
         features.incomeStability * 0.3
     );
 
-    // Responsibility Component (20%)
+    // Responsibility Component
     // Based on: dependents, educationLevel, financialDiscipline
     const responsibility = (
         features.dependents * 0.3 +
@@ -55,10 +57,10 @@ function calculateComponentScores(features) {
 function calculateFinalScore(components) {
     // Weighted sum of components
     const rawScore = (
-        components.paymentHistory * 0.35 +
-        components.financialStability * 0.25 +
-        components.incomeFactors * 0.20 +
-        components.responsibility * 0.20
+        components.paymentHistory * COMPONENT_WEIGHTS.PAYMENT_HISTORY +
+        components.financialStability * COMPONENT_WEIGHTS.FINANCIAL_STABILITY +
+        components.incomeFactors * COMPONENT_WEIGHTS.INCOME_FACTORS +
+        components.responsibility * COMPONENT_WEIGHTS.RESPONSIBILITY
     );
 
     // Map to 300-850 range
@@ -76,10 +78,10 @@ function calculateFinalScore(components) {
  */
 function generateFactorBreakdown(components, finalScore) {
     const weights = {
-        paymentHistory: 35,
-        financialStability: 25,
-        incomeFactors: 20,
-        responsibility: 20,
+        paymentHistory: COMPONENT_WEIGHTS.PAYMENT_HISTORY * 100,
+        financialStability: COMPONENT_WEIGHTS.FINANCIAL_STABILITY * 100,
+        incomeFactors: COMPONENT_WEIGHTS.INCOME_FACTORS * 100,
+        responsibility: COMPONENT_WEIGHTS.RESPONSIBILITY * 100,
     };
 
     const breakdown = {};
@@ -157,11 +159,11 @@ function calculateCreditScore(features) {
  * Get score category
  */
 function getScoreCategory(score) {
-    if (score >= 750) return 'Excellent';
-    if (score >= 650) return 'Good';
-    if (score >= 550) return 'Fair';
-    if (score >= 450) return 'Poor';
-    return 'Very Poor';
+    if (score >= SCORE_THRESHOLDS.EXCELLENT) return SCORE_CATEGORIES.EXCELLENT;
+    if (score >= SCORE_THRESHOLDS.GOOD) return SCORE_CATEGORIES.GOOD;
+    if (score >= SCORE_THRESHOLDS.FAIR) return SCORE_CATEGORIES.FAIR;
+    if (score >= SCORE_THRESHOLDS.POOR) return SCORE_CATEGORIES.POOR;
+    return SCORE_CATEGORIES.VERY_POOR;
 }
 
 module.exports = {
